@@ -29,6 +29,10 @@
                     class="com.yuraw.claudecode.RunClaudeCodeAction"
                     text="Run Claude Code"
                     description="Launch Claude Code for this project in a terminal window"/>
+            <action id="ClaudeCode.CreateClaudeFolder"
+                    class="com.yuraw.claudecode.CreateClaudeFolderAction"
+                    text="Create .claude"
+                    description="Create a .claude folder in the project root"/>
             <action id="ClaudeCode.OpenSettings"
                     class="com.yuraw.claudecode.OpenClaudeCodeSettingsAction"
                     text="Settings..."
