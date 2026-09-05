@@ -1,0 +1,38 @@
+<idea-plugin>
+    <id>com.yuraw.claudecode</id>
+    <name>Claude Code Launcher</name>
+    <vendor email="machine7y@gmail.com">yuraw</vendor>
+
+    <description><![CDATA[
+        Adds a Claude Code button to the Project view toolbar and right-click
+        menu. Clicking it opens a dropdown; the "Run Claude Code" entry
+        launches Claude Code for the current project in a separate terminal
+        window.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <projectService serviceImplementation="com.yuraw.claudecode.ClaudeCodeSettingsState"/>
+    </extensions>
+
+    <actions>
+        <group id="ClaudeCode.MainGroup"
+               text="Claude Code"
+               description="Claude Code actions"
+               icon="/icons/claude.svg"
+               popup="true">
+            <add-to-group group-id="ProjectViewToolbar" anchor="first"/>
+            <add-to-group group-id="ProjectViewPopupMenu" anchor="first"/>
+
+            <action id="ClaudeCode.RunClaudeCode"
+                    class="com.yuraw.claudecode.RunClaudeCodeAction"
+                    text="Run Claude Code"
+                    description="Launch Claude Code for this project in a terminal window"/>
+            <action id="ClaudeCode.OpenSettings"
+                    class="com.yuraw.claudecode.OpenClaudeCodeSettingsAction"
+                    text="Settings..."
+                    description="Configure the command used to launch Claude Code"/>
+        </group>
+    </actions>
+</idea-plugin>
