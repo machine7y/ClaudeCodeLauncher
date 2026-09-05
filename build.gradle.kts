@@ -40,4 +40,11 @@ tasks {
     runPluginVerifier {
         enabled = false
     }
+
+    // Skips launching a full headless IDE to index settings for search;
+    // not needed since this plugin isn't published to the Marketplace, and
+    // avoids noisy unrelated JetBrains Gradle-plugin errors during that boot.
+    buildSearchableOptions {
+        enabled = false
+    }
 }
