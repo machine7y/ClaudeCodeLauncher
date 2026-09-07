@@ -4,10 +4,9 @@
     <vendor email="machine7y@gmail.com">yuraw</vendor>
 
     <description><![CDATA[
-        Adds a Claude Code button to the Project view toolbar and right-click
-        menu. Clicking it opens a dropdown; the "Run Claude Code" entry
-        launches Claude Code for the current project in a separate terminal
-        window.
+        Adds a Claude Code button to the Project view toolbar. Clicking it
+        opens a dropdown; the "Run Claude Code" entry launches Claude Code
+        for the current project in a separate terminal window.
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>
@@ -23,7 +22,6 @@
                icon="/icons/claude.svg"
                popup="true">
             <add-to-group group-id="ProjectViewToolbar" anchor="first"/>
-            <add-to-group group-id="ProjectViewPopupMenu" anchor="first"/>
 
             <action id="ClaudeCode.RunClaudeCode"
                     class="com.yuraw.claudecode.RunClaudeCodeAction"

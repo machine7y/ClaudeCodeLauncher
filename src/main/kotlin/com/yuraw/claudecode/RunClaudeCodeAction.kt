@@ -31,13 +31,16 @@ class RunClaudeCodeAction : AnAction() {
         val terminalCommand: List<String> = when {
             os.contains("win") -> listOf(
                 "cmd.exe", "/c", "start",
-                "Claude Code",
+                "Claude Code", "/max",
                 "cmd.exe", "/k", "cd /d \"${dir.absolutePath}\" && $command"
             )
             os.contains("mac") -> listOf(
                 "osascript", "-e",
                 "tell application \"Terminal\" to do script " +
-                    "\"cd '${dir.absolutePath}' && $command\""
+                    "\"cd '${dir.absolutePath}' && $command\"\n" +
+                    "tell application \"Terminal\" to activate\n" +
+                    "tell application \"System Events\" to tell process \"Terminal\" " +
+                    "to set value of attribute \"AXFullScreen\" of window 1 to true"
             )
             else -> listOf(
                 "x-terminal-emulator", "-e",
