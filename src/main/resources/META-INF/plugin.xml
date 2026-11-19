@@ -1,13 +1,64 @@
 <idea-plugin>
     <id>com.yuraw.claudecode</id>
     <name>Claude Code Launcher</name>
-    <vendor email="machine7y@gmail.com">yuraw</vendor>
+    <vendor email="ktornax1@gmail.com" url="https://github.com/machine7y/ClaudeCodeLauncher">yuraw</vendor>
 
     <description><![CDATA[
-        Adds a Claude Code button to the Project view toolbar. Clicking it
-        opens a dropdown; the "Run Claude Code" entry launches Claude Code
-        for the current project in a separate terminal window.
+        <p>
+        Launches <a href="https://claude.com/claude-code">Claude Code</a> for the
+        current project in a separate terminal window, from a button in the
+        Project view toolbar.
+        </p>
+
+        <p>The button opens a dropdown with:</p>
+        <ul>
+          <li><b>Run Claude Code</b> runs <code>claude</code> in the project root.</li>
+          <li><b>Run with Options...</b> lets you edit the command line, such as
+              <code>claude -c</code> or <code>claude --resume</code>. The command is
+              saved per project.</li>
+          <li><b>Create .claude</b> creates a <code>.claude</code> folder in the
+              project root.</li>
+        </ul>
+
+        <p><b>Requirements</b></p>
+        <ul>
+          <li>The <code>claude</code> CLI installed and available on <code>PATH</code>.</li>
+          <li>Windows: opens a maximized <code>cmd.exe</code> window.</li>
+          <li>macOS: opens Terminal.app. macOS asks once whether the IDE may control
+              Terminal; allow it.</li>
+          <li>Linux: uses the first terminal found among gnome-terminal, konsole,
+              xfce4-terminal, x-terminal-emulator, tilix, kitty, alacritty and xterm.</li>
+        </ul>
+
+        <p>
+        Tested on Windows. macOS and Linux are supported but not yet tested;
+        please report problems on GitHub.
+        </p>
+
+        <p>
+        This is an unofficial plugin and is not affiliated with or endorsed by
+        Anthropic.
+        </p>
+
+        <p>
+        Source code and issues:
+        <a href="https://github.com/machine7y/ClaudeCodeLauncher">GitHub</a>
+        </p>
     ]]></description>
+
+    <change-notes><![CDATA[
+        <p><b>1.0.5</b></p>
+        <ul>
+          <li>macOS: quotes in the command and project path are handled correctly;
+              launch errors, such as a denied Automation permission, are shown in
+              a dialog.</li>
+          <li>Linux: supports gnome-terminal, konsole, xfce4-terminal, tilix, kitty,
+              alacritty and xterm in addition to x-terminal-emulator; the command
+              runs in your interactive shell so <code>PATH</code> from
+              <code>~/.bashrc</code> or <code>~/.zshrc</code> applies.</li>
+          <li>Licensed under the MIT License.</li>
+        </ul>
+    ]]></change-notes>
 
     <depends>com.intellij.modules.platform</depends>
 
