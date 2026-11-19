@@ -2,7 +2,7 @@
 
 A plugin for IntelliJ IDEA and Android Studio that adds a Claude Code button
 to the Project view toolbar. It launches [Claude Code](https://claude.com/claude-code)
-for the current project in a separate, maximized terminal window.
+for the current project in a separate terminal window.
 
 ![Claude Code button in the Project view toolbar](doc/toolbar-button.png)
 
@@ -30,9 +30,18 @@ works as `-c`.
 - IntelliJ IDEA or Android Studio based on platform 2023.3 (build 233) or newer.
 - The `claude` CLI installed and available on `PATH`.
 - Terminal used for the launch:
-  - Windows: `cmd.exe`
-  - macOS: Terminal.app
-  - Linux: `x-terminal-emulator`
+  - Windows: `cmd.exe`, maximized.
+  - macOS: Terminal.app, full screen. On the first launch macOS asks whether
+    the IDE may control Terminal; allow it (you can change this later in
+    **System Settings → Privacy & Security → Automation**). Full screen also
+    needs the IDE to be allowed under **Accessibility**; without it the
+    window opens at its normal size.
+  - Linux: the first terminal found from this list, with the one matching
+    your desktop (GNOME, KDE, Xfce) tried first: `gnome-terminal`, `konsole`,
+    `xfce4-terminal`, `x-terminal-emulator`, `tilix`, `kitty`, `alacritty`,
+    `xterm`. The window is maximized where the terminal supports it. The
+    command runs in your `$SHELL` as an interactive shell, so `PATH` entries
+    from `~/.bashrc` or `~/.zshrc` apply.
 
 ## Installation
 
@@ -85,3 +94,7 @@ version.
 
 To remove the plugin, open **Settings → Plugins → Installed**, select
 **Claude Code Launcher** and choose **Uninstall**.
+
+## License
+
+Licensed under the [MIT License](LICENSE).
