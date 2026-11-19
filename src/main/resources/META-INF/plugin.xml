@@ -27,14 +27,15 @@
                     class="com.yuraw.claudecode.RunClaudeCodeAction"
                     text="Run Claude Code"
                     description="Launch Claude Code for this project in a terminal window"/>
+            <action id="ClaudeCode.RunClaudeCodeWithOptions"
+                    class="com.yuraw.claudecode.RunClaudeCodeWithOptionsAction"
+                    text="Run with Options..."
+                    description="Edit the Claude Code command line (saved per project) and launch it"/>
+            <separator/>
             <action id="ClaudeCode.CreateClaudeFolder"
                     class="com.yuraw.claudecode.CreateClaudeFolderAction"
                     text="Create .claude"
                     description="Create a .claude folder in the project root"/>
-            <action id="ClaudeCode.OpenSettings"
-                    class="com.yuraw.claudecode.OpenClaudeCodeSettingsAction"
-                    text="Settings..."
-                    description="Configure the command used to launch Claude Code"/>
         </group>
     </actions>
 </idea-plugin>
