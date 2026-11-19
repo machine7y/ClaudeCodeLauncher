@@ -34,20 +34,54 @@ works as `-c`.
   - macOS: Terminal.app
   - Linux: `x-terminal-emulator`
 
-## Build
+## Installation
 
-```sh
-./gradlew buildPlugin
-```
+The same zip works in both IntelliJ IDEA and Android Studio. The plugin is
+built against IntelliJ IDEA Community, which is the platform Android Studio
+runs on.
 
-On Windows, use `gradlew.bat buildPlugin`.
+### Option 1: Install the prebuilt zip
 
-The plugin is written in Kotlin and built against IntelliJ IDEA Community.
-Android Studio runs on the same platform, so one build works in both IDEs.
-The build writes the zip to `build/distributions/claude-code-launcher-<version>.zip`.
+1. Open the [Releases](https://github.com/machine7y/ClaudeCodeLauncher/releases)
+   page and download `claude-code-launcher-<version>.zip` from the latest release.
+   Don't unpack it.
+2. In the IDE, open **Settings → Plugins** (on macOS, **Settings** is under the
+   **IntelliJ IDEA** or **Android Studio** menu).
+3. Click the gear icon at the top and choose **Install Plugin from Disk...**.
+4. Select the downloaded zip and click **OK**.
+5. Restart the IDE if it asks you to.
 
-## Install
+### Option 2: Build from source
 
-1. Open **Settings → Plugins**.
-2. Click the gear icon and choose **Install Plugin from Disk...**.
-3. Select the zip from `build/distributions` and restart the IDE if asked.
+You need JDK 17 or newer, with `JAVA_HOME` pointing to it, and Git.
+You don't need to install Gradle: the wrapper in the repository downloads the
+right version.
+
+1. Clone the repository:
+
+   ```sh
+   git clone https://github.com/machine7y/ClaudeCodeLauncher.git
+   cd ClaudeCodeLauncher
+   ```
+
+2. Build the plugin:
+
+   ```sh
+   ./gradlew buildPlugin        # macOS / Linux
+   gradlew.bat buildPlugin      # Windows
+   ```
+
+   The first build downloads Gradle and the IntelliJ Platform SDK, which is
+   several hundred MB, so it can take a few minutes. Later builds are fast.
+
+3. The build writes the zip to
+   `build/distributions/claude-code-launcher-<version>.zip`.
+4. Install that zip as in steps 2–5 of [Option 1](#option-1-install-the-prebuilt-zip).
+
+### Updating
+
+To update, install a newer zip the same way. The IDE replaces the old
+version.
+
+To remove the plugin, open **Settings → Plugins → Installed**, select
+**Claude Code Launcher** and choose **Uninstall**.
