@@ -47,6 +47,14 @@
     ]]></description>
 
     <change-notes><![CDATA[
+        <p><b>1.0.6</b></p>
+        <ul>
+          <li>Cyrillic text in the command, such as a prompt, is no longer altered.
+              Look-alike Cyrillic letters typed on a Russian layout are fixed only
+              outside quotes and only in words that become fully Latin, so
+              <code>claude -с</code> still becomes <code>claude -c</code>.</li>
+        </ul>
+
         <p><b>1.0.5</b></p>
         <ul>
           <li>macOS: quotes in the command and project path are handled correctly;
