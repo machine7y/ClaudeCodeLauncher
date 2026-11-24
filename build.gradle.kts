@@ -11,6 +11,10 @@ repositories {
     mavenCentral()
 }
 
+dependencies {
+    testImplementation("junit:junit:4.13.2")
+}
+
 // IC (IntelliJ IDEA Community) is the base platform that Android Studio is
 // also built on, so a plugin compiled against it works in both IDEs.
 intellij {

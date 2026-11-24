@@ -43,8 +43,7 @@ class RunClaudeCodeWithOptionsDialog(private val project: Project) : DialogWrapp
     override fun getPreferredFocusedComponent(): JComponent = commandField
 
     override fun doOKAction() {
-        val text = CyrillicHomoglyphs.normalize(commandField.text.trim())
-            .ifEmpty { ClaudeCodeLauncher.DEFAULT_COMMAND }
+        val text = ClaudeCodeLauncher.normalizeCommand(commandField.text)
         ClaudeCodeSettingsState.getInstance(project).command = text
         command = text
         super.doOKAction()

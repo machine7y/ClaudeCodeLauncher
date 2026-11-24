@@ -13,10 +13,15 @@ object ClaudeCodeLauncher {
 
     private val LOG = Logger.getInstance(ClaudeCodeLauncher::class.java)
 
+    // The single place that turns typed text into the command line to run, so
+    // the command the dialog saves and the one launched always match.
+    fun normalizeCommand(command: String): String =
+        CyrillicHomoglyphs.normalize(command.trim()).ifEmpty { DEFAULT_COMMAND }
+
     fun launch(project: Project, command: String) {
         val basePath = project.basePath ?: return
         val projectDir = File(basePath)
-        val normalized = CyrillicHomoglyphs.normalize(command.trim()).ifEmpty { DEFAULT_COMMAND }
+        val normalized = normalizeCommand(command)
 
         try {
             val os = System.getProperty("os.name").lowercase()
